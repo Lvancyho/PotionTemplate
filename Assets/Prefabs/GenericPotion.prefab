@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6737681202664947235}
   - component: {fileID: 7195241145508308676}
+  - component: {fileID: 8282714151257894520}
   m_Layer: 0
   m_Name: GenericPotion
   m_TagString: Untagged
@@ -62,6 +63,20 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8282714151257894520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525976245977542997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ac4876833c6aa409a77a679b5c3c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakForce: -9
+  cloud: {fileID: 2831388612737941916, guid: b837881084a785e468836d70ad61a654, type: 3}
 --- !u!1 &4589732932935903996
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +389,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8103899218722839564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a307a8ae9972a1348ab343ee84bcf7d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c9cc50358645047b4baf1817564af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxWobble: 0.03
