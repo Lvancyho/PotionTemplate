@@ -1,32 +1,29 @@
-
-using Effects;
+using System.Text;
 using Interfaces;
 using UnityEngine;
 
-public class BasicEffect : IEffect
+namespace Effects
 {
-    public void ApplyTo(EffectHandler handler)
+    public class BasicEffect : IEffect
     {
-        throw new System.NotImplementedException();
-    }
+        public StringBuilder GetDetails()
+        {
+            return new StringBuilder();
+        }
 
-    public string GetDetails()
-    {
-        throw new System.NotImplementedException();
-    }
+        public Color GetColor()
+        {
+            return Color.white;
+        }
 
-    public Color GetColor()
-    {
-        throw new System.NotImplementedException();
-    }
+        public float GetDuration()
+        {
+            return 0;
+        }
 
-    public float GetDuration()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public float GetStrength()
-    {
-        throw new System.NotImplementedException();
+        public float GetStrength()
+        {
+            return 1;
+        }
     }
 }

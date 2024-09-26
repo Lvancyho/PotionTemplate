@@ -1,16 +1,39 @@
+using Interfaces;
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class EffectCloud : MonoBehaviour
+namespace Effects
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class EffectCloud : MonoBehaviour
     {
-        
-    }
+        private IEffect _effect;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Only called once;
+        // ReSharper disable Unity.PerformanceAnalysis
+        public void Initialize([NotNull] IEffect effect)
+        {
+            #if UNITY_EDITOR
+            if (_effect != null)
+            {
+                Debug.LogWarning("Trying to double initialize a potion");
+                return;
+            }
+            #endif
+            _effect = effect;
+            ParticleSystem system = GetComponent<ParticleSystem>();
+
+            var main = system.main;
+            main.startColor = effect.GetColor();
+            main.duration = effect.GetDuration();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Rigidbody rb = other.attachedRigidbody;
+            if (rb && rb.TryGetComponent(out EffectHandler handler))
+            {
+                handler.TryApply(_effect);
+            }
+        }
     }
 }

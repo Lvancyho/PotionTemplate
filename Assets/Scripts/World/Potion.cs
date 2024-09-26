@@ -1,7 +1,7 @@
 using System;
+using Effects;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utility;
 
 namespace World
@@ -15,16 +15,26 @@ namespace World
         
         [SerializeField] private float breakForce = -25; // This number should be squared manually so 10 --> 100.
         [SerializeField] private EffectCloud cloud;
-        
         public void InitializeEffect(IEffect effect)
         {
             _effect = effect;
+
+            MeshRenderer mr = GetComponent<MeshRenderer>();
+            
+            mr.material.SetColor(StaticUtility.ColorID, _effect.GetColor());
+            
             print("Initialized Potion");
         }
 
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            _previousSpeed = Rb.linearVelocity.sqrMagnitude;
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
             //While using SqrMagnitude is logically faster, the difference is very minor.
             Vector3 velocity = Rb.linearVelocity;
             float speed = velocity.sqrMagnitude;
@@ -32,11 +42,8 @@ namespace World
             //If it's negative, then we've suddenly slowed down
             if (speed - _previousSpeed < breakForce)
             {
-                if(Physics.OverlapSphere(transform.position, 0.2f, StaticUtility.GroundLayers).Length > 2)
-                    Break(velocity);
+                Break(velocity);
             }
-
-            _previousSpeed = speed;
         }
 
         public void TakeDamage(float amount)
@@ -53,9 +60,11 @@ namespace World
         }
 
 
+       
         private void Break(Vector3 direction)
         {
             Instantiate(cloud, transform.position, Quaternion.LookRotation(direction));
+            cloud.Initialize(_effect);
             Destroy(gameObject);
         }
     }

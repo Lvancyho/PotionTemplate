@@ -1,6 +1,7 @@
-
+using System.Text;
 using Interfaces;
 using UnityEngine;
+using Utility;
 
 namespace Effects
 {
@@ -8,27 +9,26 @@ namespace Effects
 
     public abstract class EffectDecorator : ScriptableObject, IEffect
     {
-        [SerializeField] private EffectDecorator test2;
         [SerializeField, ColorUsage(true, true)] protected Color color;
-        [SerializeField, TextArea] protected string description;
-            
+        [SerializeField, TextArea] private string description;
+        protected string trueDescription;
         private IEffect _currentEffect;
+
         
         
-        
-        public void ApplyTo(EffectHandler handler)
+        private void OnValidate()
         {
-            throw new System.NotImplementedException();
+            trueDescription = $"* {description}".TextMeshProData();
         }
 
-        public string GetDetails()
+        public StringBuilder GetDetails()
         {
-            throw new System.NotImplementedException();
+            return _currentEffect.GetDetails().AppendLine(description);
         }
 
         public Color GetColor()
         {
-            throw new System.NotImplementedException();
+            return color;
         }
 
         public float GetDuration()
