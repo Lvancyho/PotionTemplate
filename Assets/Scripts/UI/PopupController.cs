@@ -23,6 +23,8 @@ namespace UI
 
         public void CreatePopup(IPopupFactory factory, IPopupItem item)
         {
+            if (currentFactory == factory) return;
+            
             if (currentFactory != null)
             {
                 currentFactory.Discard();
