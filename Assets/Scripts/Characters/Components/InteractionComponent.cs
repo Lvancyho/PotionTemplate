@@ -34,6 +34,8 @@ namespace Characters.Components
 
                 if (!hit || !hitInfo.rigidbody || !hitInfo.rigidbody.TryGetComponent(out IGrabable grabable))
                 {
+                   
+
                     if (_grabable != null)
                     {
                         _grabable?.StopHover();
@@ -41,6 +43,12 @@ namespace Characters.Components
                     }
                     return;
                 }
+                
+                if (grabable is IPopupItem popupItem)
+                { 
+                    popupItem.BuildFactory();
+                }
+                
                 if (_interactionState)
                 {
                     _targetRb = grabable.OnGrab();

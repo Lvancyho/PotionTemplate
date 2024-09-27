@@ -23,7 +23,7 @@ namespace Utility
         #region Shader
         //--------------------------- SHADER -----------------------------//
         public static readonly int ColorID = Shader.PropertyToID("Color");
-        
+        public static readonly int FillID = Shader.PropertyToID("_Fill");
         #endregion
 
         #region Animation
@@ -32,8 +32,9 @@ namespace Utility
         
 
         #endregion
-        
-      
+
+
+
     }
     
     public static class StringGameParserUtility
