@@ -25,7 +25,7 @@ namespace Decorator
             print("Test 1");
             print(demo.GetDescription());
             print(demo.GetCost().ToString(CultureInfo.InvariantCulture));
-            meshRenderer.SetColor(Color1, demo.GetColor());
+            meshRenderer.SetColor(Color1, demo.GetEffectColor());
         }
         [ContextMenu("Test 2")]
         void Test2()
@@ -34,7 +34,7 @@ namespace Decorator
             print("Test 2");
             print(demo.GetDescription());
             print(demo.GetCost().ToString(CultureInfo.InvariantCulture));
-            meshRenderer.SetColor(Color1, demo.GetColor());
+            meshRenderer.SetColor(Color1, demo.GetEffectColor());
         }
     }
 }
