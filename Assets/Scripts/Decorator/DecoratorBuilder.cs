@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Decorator
 {
-    public class DecoratoeBuilder : MonoBehaviour
+    public class DecoratorBuilder : MonoBehaviour
     {
         private static readonly int Color1 = Shader.PropertyToID("_Main");
         private MundaneEffect demo;
@@ -25,7 +25,7 @@ namespace Decorator
             print("Test 1");
             print(demo.GetDescription());
             print(demo.GetCost().ToString(CultureInfo.InvariantCulture));
-            meshRenderer.SetColor(Color1, demo.GetEffectColor());
+            meshRenderer.SetColor(Color1, demo.GetColor());
         }
         [ContextMenu("Test 2")]
         void Test2()
@@ -34,7 +34,7 @@ namespace Decorator
             print("Test 2");
             print(demo.GetDescription());
             print(demo.GetCost().ToString(CultureInfo.InvariantCulture));
-            meshRenderer.SetColor(Color1, demo.GetEffectColor());
+            meshRenderer.SetColor(Color1, demo.GetColor());
         }
     }
 }
