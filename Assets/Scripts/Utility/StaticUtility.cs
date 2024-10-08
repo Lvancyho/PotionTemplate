@@ -22,7 +22,7 @@ namespace Utility
         
         #region Shader
         //--------------------------- SHADER -----------------------------//
-        public static readonly int ColorID = Shader.PropertyToID("Color");
+        public static readonly int ColorID = Shader.PropertyToID("_Color");
         public static readonly int FillID = Shader.PropertyToID("_Fill");
         #endregion
 

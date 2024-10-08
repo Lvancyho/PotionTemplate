@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using Managers.Factory;
-using ScriptableObjects;
 using UnityEngine;
 using Utility;
 
@@ -21,7 +20,7 @@ namespace World.Game
         }
     }
 
-    public class Cauldron : MonoBehaviour, IPopupItem, IGrabable
+    public class Cauldron : MonoBehaviour
     {
         /*TODO:
         1. Worldspace UI
@@ -32,7 +31,7 @@ namespace World.Game
         */
 
         [SerializeField] private int maxIngredients = 3;
-        [SerializeField] private CauldronFactory factory;
+      //  [SerializeField] private CauldronFactory factory;
 
         private Material _material;
         private Collider _trigger;
@@ -90,13 +89,13 @@ namespace World.Game
             StopAllCoroutines();
             StartCoroutine(HandleCooldown());
         }
-        
+
         IEnumerator HandleCooldown()
         {
             _trigger.enabled = false;
             yield return Delay;
             _trigger.enabled = true;
-            
+
             int size = Physics.OverlapBoxNonAlloc(_trigger.transform.position, _trigger.bounds.extents, Results,
                 _trigger.transform.rotation);
 
@@ -105,7 +104,8 @@ namespace World.Game
                 for (int i = 0; i < size; i++)
                 {
                     Rigidbody rb = Results[i].attachedRigidbody;
-                    if (rb && Results[i].attachedRigidbody.TryGetComponent(out Prop prop) && prop.gameObject.activeInHierarchy)
+                    if (rb && Results[i].attachedRigidbody.TryGetComponent(out Prop prop) &&
+                        prop.gameObject.activeInHierarchy)
                     {
                         if (ingredients.Count < maxIngredients)
                         {
@@ -115,29 +115,6 @@ namespace World.Game
                     }
                 }
             }
-        }
-
-        public IPopupFactory GetFactory()
-        {
-            return factory  ;
-        }
-
-        public void OnHover()
-        {
-            
-        }
-
-        public Rigidbody OnGrab()
-        {
-            return null;
-        }
-
-        public void OnRelease()
-        {
-        }
-
-        public void StopHover()
-        {
         }
     }
 }

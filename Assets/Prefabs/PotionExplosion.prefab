@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 297958003769077210}
   - component: {fileID: 2831388612737941916}
+  - component: {fileID: 8842055196629618653}
   m_Layer: 0
   m_Name: PotionExplosion
   m_TagString: Untagged
@@ -45,6 +46,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3254a4d591702914e891f3504ae9b4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8842055196629618653
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422718055388144342}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.94, z: 0}
 --- !u!1 &750087385386915438
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +117,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4996,7 +5018,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9839,8 +9861,7 @@ ParticleSystemRenderer:
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 2995135783351175905, guid: 7a974e252e672f44fad45de1811ae67f, type: 3}
   m_Mesh1: {fileID: 7118790968680112829, guid: 7a974e252e672f44fad45de1811ae67f, type: 3}
-  m_Mesh2: {fileID: -4103887191277581920, guid: 7a974e252e672f44fad45de1811ae67f,
-    type: 3}
+  m_Mesh2: {fileID: -4103887191277581920, guid: 7a974e252e672f44fad45de1811ae67f, type: 3}
   m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1

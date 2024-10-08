@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MundanePotion
   m_EditorClassIdentifier: 
   description: A Potion
-  effectColor: {r: 1, g: 1, b: 1, a: 0}
+  effectColor: {r: 1, g: 1, b: 1, a: 1}
   cost: 0
+  duration: 1

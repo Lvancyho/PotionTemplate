@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4cf603e60af34648a01d3c11b4a9897, type: 3}
-  m_Name: HairyPotion
+  m_Name: ShrinkingPotion
   m_EditorClassIdentifier: 
-  description: Makes you extra Hairy!
-  effectColor: {r: 0.033018872, g: 0.009107133, b: 0.0023362406, a: 0}
-  cost: 15
+  description: Makes you super small!
+  effectColor: {r: 0, g: 256.6702, b: 2202.5664, a: 1}
+  cost: 5
+  duration: 0

@@ -1,5 +1,5 @@
-using System;
 using Effects;
+using Effects.Variants;
 using Interfaces;
 using UnityEngine;
 using Utility;
@@ -19,9 +19,9 @@ namespace World
         {
             _effect = effect;
 
-            MeshRenderer mr = GetComponent<MeshRenderer>();
+            MeshRenderer mr = transform.GetChild(2).GetComponent<MeshRenderer>();
             
-            mr.material.SetColor(StaticUtility.ColorID, _effect.GetColor());
+            mr.material.SetColor(StaticUtility.ColorID, _effect.GetEffectColor());
             
             print("Initialized Potion");
         }
@@ -63,8 +63,8 @@ namespace World
        
         private void Break(Vector3 direction)
         {
-            Instantiate(cloud, transform.position, Quaternion.LookRotation(direction));
-            cloud.Initialize(_effect);
+            var c = Instantiate(cloud, transform.position, Quaternion.LookRotation(direction));
+            c.Initialize(_effect);
             Destroy(gameObject);
         }
     }

@@ -1,4 +1,4 @@
-using Interfaces;
+using Effects.Variants;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -20,11 +20,18 @@ namespace Effects
             }
             #endif
             _effect = effect;
-            ParticleSystem system = GetComponent<ParticleSystem>();
+            ParticleSystem system = transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
 
             var main = system.main;
-            main.startColor = effect.GetColor();
+            var color = main.startColor;
+            color.color = effect.GetEffectColor();
+            main.startColor = color;
             main.duration = effect.GetDuration();
+            
+            //transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            system.Play();
+            
+            Destroy(gameObject, effect.GetDuration() + main.startLifetime.constantMax);
         }
 
         private void OnTriggerEnter(Collider other)
