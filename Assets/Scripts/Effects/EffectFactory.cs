@@ -1,24 +1,34 @@
+using System.Collections.Generic;
 using Effects.Variants;
-using World;
+using UnityEngine;
+using World.Game;
 
 namespace Effects
 {
     public static class EffectFactory
     {
-
-        public static IEffect BuildEffect(Prop[] props)
+        public static IEffect BuildEffect(ref Stack<PlacedIngredient> ingredients)
         {
-            IEffect baseEffect = new MundaneEffect();
+            IEffect effect = new MundaneEffect();
 
-            foreach (var VARIABLE in COLLECTION)
+            while (ingredients.TryPop(out PlacedIngredient ingredient))
             {
-                
+                switch (ingredient.MyProp.name.ToLower())
+                {
+                    case "sphere":
+                        effect = new HairyEffect(effect);
+                        break;
+                    case "cube":
+                        effect = new ShrinkingEffect(effect);
+                        break;
+                    default:
+                        Debug.Log("Added invalid ingredient");
+                        break;
+                }
             }
-            
 
-            return baseEffect;
+            return effect;
         }
-        
         
     }
 }

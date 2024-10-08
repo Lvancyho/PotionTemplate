@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Interfaces;
-using Managers.Factory;
+using Effects;
 using UnityEngine;
 using Utility;
 
@@ -31,12 +30,13 @@ namespace World.Game
         */
 
         [SerializeField] private int maxIngredients = 3;
+        [SerializeField] private Potion potion;
       //  [SerializeField] private CauldronFactory factory;
 
         private Material _material;
         private Collider _trigger;
         
-        private readonly Stack<PlacedIngredient> ingredients = new();
+        private Stack<PlacedIngredient> ingredients = new();
         
         public Stack<PlacedIngredient> Ingredients => ingredients;
         
@@ -70,6 +70,15 @@ namespace World.Game
 
             myProp.gameObject.SetActive(false);
             ingredients.Push(new PlacedIngredient(myProp, rb));
+
+            if (ingredients.Count > 2)
+            {
+                Potion myPotion = Instantiate(potion, transform.position, Quaternion.identity);
+                myPotion.InitializeEffect(EffectFactory.BuildEffect(ref ingredients));
+                gameObject.SetActive(false);
+                
+            }
+
             OnIngredientsChanged.Invoke();
         }
 
