@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LabelGlass
-  m_Shader: {fileID: -6465566751694194690, guid: 2b118b5d29bfa5d4884a8852659dff73,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2b118b5d29bfa5d4884a8852659dff73, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -39,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Label:
-        m_Texture: {fileID: 2800000, guid: 732451f211762934aaa578af136b4d57, type: 3}
+        m_Texture: {fileID: 2800000, guid: 017d2380bd0e8a043a2e15690d238b23, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:

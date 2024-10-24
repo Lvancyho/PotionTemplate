@@ -791,6 +791,268 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Drawing"",
+            ""id"": ""4c621d17-944e-40d2-84ff-2b8deafa3786"",
+            ""actions"": [
+                {
+                    ""name"": ""Primary"",
+                    ""type"": ""Value"",
+                    ""id"": ""ded2f107-96cc-49f3-83e5-48387e956735"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Secondary"",
+                    ""type"": ""Value"",
+                    ""id"": ""cd3ce08e-6f4f-41df-b813-52a2403ae4b9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Undo"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b8d8257-986c-4fff-9073-bcedf2dd8d44"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Redo"",
+                    ""type"": ""Button"",
+                    ""id"": ""32c8abdc-0aee-4c0f-9293-809f08846a43"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Save"",
+                    ""type"": ""Button"",
+                    ""id"": ""01d02b68-74a9-46b6-aa60-a157ad1a3aa6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""525445ad-ca0c-45fc-a198-8a471d72bc80"",
+                    ""path"": ""OneModifier(overrideModifiersNeedToBePressedFirst=true)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Primary"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""5f3ff1f7-e71e-455c-a017-67d2a52cd40c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Primary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""ff10b9b4-4ea8-48e4-a4a2-cd099dffcf63"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Primary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""2f87ffa1-4db1-40c3-802c-b9f467fef026"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""42611484-d7a7-45a3-8b16-952a49a16534"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""e7fde0f8-0f45-4089-8a5c-411e4488bd62"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""72b6d1f3-23bd-462d-ac75-ad53f539cd29"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Undo"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""06725a01-4594-404c-b2b9-951370cc6a7f"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Undo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""670b0b0a-bd15-4b87-8b48-c12fd3a4f33a"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Undo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""0743b158-6510-439a-acf5-e1dbd2f2414c"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""b5c9a07c-9486-473c-ba15-71189a6d833c"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""bd0c8dfe-2bf5-4d53-b050-00b033c43def"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""85cce86f-c511-4e55-b89b-5d50f832ae2c"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""a0324268-0fa2-4cf0-a5ef-0cbab809c742"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""b78c9c14-5258-4713-a562-594ec0ff6d54"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""050ccd13-2caa-4dc7-a306-1d0975efe647"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Redo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""5e78639f-933c-4908-98f7-6f2111674e8c"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""4262e21f-6965-4045-b4b5-960be2d0432e"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""cc5223ac-f358-42ed-9774-8da8c8781ff1"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -874,12 +1136,20 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Drawing
+        m_Drawing = asset.FindActionMap("Drawing", throwIfNotFound: true);
+        m_Drawing_Primary = m_Drawing.FindAction("Primary", throwIfNotFound: true);
+        m_Drawing_Secondary = m_Drawing.FindAction("Secondary", throwIfNotFound: true);
+        m_Drawing_Undo = m_Drawing.FindAction("Undo", throwIfNotFound: true);
+        m_Drawing_Redo = m_Drawing.FindAction("Redo", throwIfNotFound: true);
+        m_Drawing_Save = m_Drawing.FindAction("Save", throwIfNotFound: true);
     }
 
     ~@Controls()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, Controls.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, Controls.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Drawing.enabled, "This will cause a leak and performance issues, Controls.Drawing.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -1125,6 +1395,84 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Drawing
+    private readonly InputActionMap m_Drawing;
+    private List<IDrawingActions> m_DrawingActionsCallbackInterfaces = new List<IDrawingActions>();
+    private readonly InputAction m_Drawing_Primary;
+    private readonly InputAction m_Drawing_Secondary;
+    private readonly InputAction m_Drawing_Undo;
+    private readonly InputAction m_Drawing_Redo;
+    private readonly InputAction m_Drawing_Save;
+    public struct DrawingActions
+    {
+        private @Controls m_Wrapper;
+        public DrawingActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Primary => m_Wrapper.m_Drawing_Primary;
+        public InputAction @Secondary => m_Wrapper.m_Drawing_Secondary;
+        public InputAction @Undo => m_Wrapper.m_Drawing_Undo;
+        public InputAction @Redo => m_Wrapper.m_Drawing_Redo;
+        public InputAction @Save => m_Wrapper.m_Drawing_Save;
+        public InputActionMap Get() { return m_Wrapper.m_Drawing; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DrawingActions set) { return set.Get(); }
+        public void AddCallbacks(IDrawingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DrawingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DrawingActionsCallbackInterfaces.Add(instance);
+            @Primary.started += instance.OnPrimary;
+            @Primary.performed += instance.OnPrimary;
+            @Primary.canceled += instance.OnPrimary;
+            @Secondary.started += instance.OnSecondary;
+            @Secondary.performed += instance.OnSecondary;
+            @Secondary.canceled += instance.OnSecondary;
+            @Undo.started += instance.OnUndo;
+            @Undo.performed += instance.OnUndo;
+            @Undo.canceled += instance.OnUndo;
+            @Redo.started += instance.OnRedo;
+            @Redo.performed += instance.OnRedo;
+            @Redo.canceled += instance.OnRedo;
+            @Save.started += instance.OnSave;
+            @Save.performed += instance.OnSave;
+            @Save.canceled += instance.OnSave;
+        }
+
+        private void UnregisterCallbacks(IDrawingActions instance)
+        {
+            @Primary.started -= instance.OnPrimary;
+            @Primary.performed -= instance.OnPrimary;
+            @Primary.canceled -= instance.OnPrimary;
+            @Secondary.started -= instance.OnSecondary;
+            @Secondary.performed -= instance.OnSecondary;
+            @Secondary.canceled -= instance.OnSecondary;
+            @Undo.started -= instance.OnUndo;
+            @Undo.performed -= instance.OnUndo;
+            @Undo.canceled -= instance.OnUndo;
+            @Redo.started -= instance.OnRedo;
+            @Redo.performed -= instance.OnRedo;
+            @Redo.canceled -= instance.OnRedo;
+            @Save.started -= instance.OnSave;
+            @Save.performed -= instance.OnSave;
+            @Save.canceled -= instance.OnSave;
+        }
+
+        public void RemoveCallbacks(IDrawingActions instance)
+        {
+            if (m_Wrapper.m_DrawingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDrawingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DrawingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DrawingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DrawingActions @Drawing => new DrawingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1189,5 +1537,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IDrawingActions
+    {
+        void OnPrimary(InputAction.CallbackContext context);
+        void OnSecondary(InputAction.CallbackContext context);
+        void OnUndo(InputAction.CallbackContext context);
+        void OnRedo(InputAction.CallbackContext context);
+        void OnSave(InputAction.CallbackContext context);
     }
 }

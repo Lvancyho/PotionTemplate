@@ -24,7 +24,7 @@ namespace Characters
         {
             PlayerInteractionComponent = GetComponent<InteractionComponent>();
             PlayerMovementComponent = GetComponent<MovementComponent>();
-            PlayerControls.Init(this);
+            PlayerControls.InitPlayer(this);
             PlayerControls.EnableGameControls();
         }
 

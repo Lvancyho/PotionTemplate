@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: miPotion
-  m_Shader: {fileID: -6465566751694194690, guid: edc1f0fabf2a7a641a6ca299714df7cf,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: edc1f0fabf2a7a641a6ca299714df7cf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -76,6 +75,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BubbleColor: {r: 2.7814941, g: 0, b: 0.05383532, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _Main: {r: 0, g: 0.054882612, b: 1.3207549, a: 0}
     - _Secondary: {r: 7.422066, g: 0.2450684, b: 0.2450684, a: 0}
     - _SideColor: {r: 0.46958265, g: 0, b: 0, a: 0}
