@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +11,11 @@ namespace DrawingSystem
         [SerializeField] private MeshRenderer mesh;    // The MxN image we want to compress
     
         private Texture2D texture;
-        private float aspectRatio;
         private Material m;
 
+        private float widthRatio;
+        private float heightRatio;
+        
         private void Awake()
         {
             drawingArea = transform.GetChild(0).GetComponent<RawImage>();
@@ -26,68 +26,44 @@ namespace DrawingSystem
             drawingArea.uvRect = new Rect(0f, 0.5f, 1f, 0.5f);
             m = mesh.material;
             m.SetTexture(Label, texture);
-        }
 
-        private void Start()
-        {
-            aspectRatio = drawingArea.rectTransform.rect.width / drawingArea.rectTransform.rect.height;
+            widthRatio = 512 / drawingArea.rectTransform.rect.width;
+            heightRatio = 256 / drawingArea.rectTransform.rect.height;
         }
         
-        //When falloff is a percentage from the center, 1 means there will be no fall off
-        public void UpdateImage(Vector2 point, Color c, int size = 1, float fallOff = 1)
+        //points must be a rolled array, describing the indicies on the texture to modify.
+        public void UpdateImage(int[] points, Color[] colors)
         {
-            // Get the current texture colors
-            Color[] colors = texture.GetPixels(0, 256, 512, 256);
+            // Get the current pixel data from the texture
+            Color[] currentColors = texture.GetPixels(0, 256, 512, 256);
 
-            // Convert the screen space point to texture space (adjusted for anchored position)
-            Vector2Int textureSpace = GetPixelFromScreenSpace(point - drawingArea.rectTransform.anchoredPosition / 2);
-            Debug.Log(textureSpace);
-
-            // Iterate over a square bounding box around the circle
-            int radius = size / 2;
-            for (int y = -radius; y <= radius; y++)
+            // Iterate through the points and apply the corresponding color from the provided array
+            for (int i = 0; i < points.Length; i++)
             {
-                for (int x = -radius; x <= radius; x++)
-                {
-                    int pixelX = textureSpace.x + x;
-                    int pixelY = textureSpace.y + y;
-
-                    // Check if the current pixel is within the bounds of the texture
-                    if (pixelX >= 0 && pixelX < 512 && pixelY >= 0 && pixelY < 256)
-                    {
-                        // Calculate the distance from the center point
-                        float distance = Mathf.Sqrt(x * x + y * y);
-
-                        // If the distance is within the radius, apply the color with falloff
-                        if (distance <= radius)
-                        {
-                            // Calculate the falloff (1.0 means no falloff, smaller values create more falloff)
-                            float falloffFactor = Mathf.Clamp01(1 - (distance / radius) * fallOff);
-
-                            // Get the current pixel color
-                            int index = pixelY * 512 + pixelX;
-                            Color currentColor = colors[index];
-
-                            // Blend the color with the current texture color based on falloff
-                            Color blendedColor = Color.Lerp(currentColor, c, falloffFactor);
-
-                            // Update the pixel color in the array
-                            colors[index] = blendedColor;
-                        }
-                    }
-                }
+                int index = points[i];
+                if(index == -1) continue;
+                Color trueColor = colors[i];
+                trueColor.a = 1;
+                currentColors[index] = Color.Lerp(currentColors[index] , trueColor, colors[i].a);   // Apply the color at the corresponding index
             }
 
-            // Apply the updated colors to the texture
+            // Update the texture with the modified colors
+            texture.SetPixels(0, 256, 512, 256, currentColors);
+            texture.Apply();
+        }
+        
+        public void UpdateImage(Color[] colors)
+        {
             texture.SetPixels(0, 256, 512, 256, colors);
             texture.Apply();
         }
 
-        private Vector2Int GetPixelFromScreenSpace(Vector2 screenPoint)
+        public Vector2Int GetPixelFromScreenSpace(Vector2 screenPoint)
         {
+            screenPoint -= drawingArea.rectTransform.anchoredPosition / 2;
             // Convert screen coordinates to texture coordinates
-            int x = Mathf.RoundToInt(screenPoint.x * 512 / drawingArea.rectTransform.rect.width);
-            int y = Mathf.RoundToInt(screenPoint.y * 256 / drawingArea.rectTransform.rect.height);
+            int x = Mathf.RoundToInt(screenPoint.x * widthRatio);
+            int y = Mathf.RoundToInt(screenPoint.y * heightRatio);
 
             return new Vector2Int(x, y);
         }
@@ -121,6 +97,17 @@ namespace DrawingSystem
         public void Load(string fileLocation)
         {
             throw new System.NotImplementedException();
+        }
+
+        public Color GetPixelAt(Vector2 location)
+        {
+            return texture.GetPixel((int)location.x, (int)location.y);
+        }
+
+
+        public Color[] GetSnapshot()
+        {
+            return texture.GetPixels(0,256,512,256);
         }
     }
 }

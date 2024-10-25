@@ -14,6 +14,7 @@ namespace DrawingSystem
         private IDrawingTool currentTool;
         
         [SerializeField] private DrawingCanvas canvas;
+        
         private string fileLocation;
         
         public Color color;
@@ -53,12 +54,12 @@ namespace DrawingSystem
         
         public void Undo()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void Redo()
         {
-            
+            throw new NotImplementedException();
         }
 
         public async void Save()
@@ -78,9 +79,24 @@ namespace DrawingSystem
             canvas.Load(fileLocation);
         }
 
-        public void DrawPixel(Vector2 location, Color color1, int brushSize, float fallOff)
+        public void DrawPixels(int[] locations, Color[] colors)
         {
-            canvas.UpdateImage(location, color1, brushSize, fallOff);
+            canvas.UpdateImage(locations, colors);
+        }
+        public void DrawPixels(Color[] colors) //Used if you wanted to redraw the ENTIRE canvas.
+        {
+            canvas.UpdateImage(colors);
+        }
+
+
+        public Color[] Snapshot()
+        {
+            return canvas.GetSnapshot();
+        }
+
+        public Vector2Int GetPixelFromScreenSpace(Vector2 point)
+        {
+            return canvas.GetPixelFromScreenSpace(point);
         }
     }
 }
