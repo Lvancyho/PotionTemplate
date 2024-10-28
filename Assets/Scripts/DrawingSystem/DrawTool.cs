@@ -68,7 +68,27 @@ namespace DrawingSystem
         //TODO: When we end our press, we should send our transaction as a command
         public void OnLeftClickEnd(Vector2 location)
         {
-            
+            // Capture the points drawn during the stroke
+            Vector2[] drawnPoints = CaptureDrawnPoints(); // Implement this method to return the points drawn
+            Color[] drawnColors = new Color[drawnPoints.Length];
+
+            for (int i = 0; i < drawnPoints.Length; i++)
+            {
+                drawnColors[i] = color; // The color used in the stroke
+            }
+
+            // Create and execute the command
+            DrawCommand drawCommand = new DrawCommand(drawnPoints, drawnColors);
+            CommandManager.Instance.ExecuteCommand(drawCommand); // This should now work without error
+        }
+
+
+        // Capture drawn points method (simplified example, customize as needed)
+        private Vector2[] CaptureDrawnPoints()
+        {
+            // Implement a way to return the drawn points in this stroke
+            // This is just a placeholder and needs to be implemented
+            return new Vector2[] { point }; // Replace with actual collected points
         }
     }
 }
