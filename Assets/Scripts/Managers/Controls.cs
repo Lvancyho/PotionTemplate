@@ -840,6 +840,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Clear"",
+                    ""type"": ""Button"",
+                    ""id"": ""55ae281c-1823-4b58-84cc-cd0a4ba49a5b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1051,6 +1060,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Save"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5f18fc3-6634-4cba-a519-390f24dff230"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Clear"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1143,6 +1163,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Drawing_Undo = m_Drawing.FindAction("Undo", throwIfNotFound: true);
         m_Drawing_Redo = m_Drawing.FindAction("Redo", throwIfNotFound: true);
         m_Drawing_Save = m_Drawing.FindAction("Save", throwIfNotFound: true);
+        m_Drawing_Clear = m_Drawing.FindAction("Clear", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -1404,6 +1425,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Drawing_Undo;
     private readonly InputAction m_Drawing_Redo;
     private readonly InputAction m_Drawing_Save;
+    private readonly InputAction m_Drawing_Clear;
     public struct DrawingActions
     {
         private @Controls m_Wrapper;
@@ -1413,6 +1435,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Undo => m_Wrapper.m_Drawing_Undo;
         public InputAction @Redo => m_Wrapper.m_Drawing_Redo;
         public InputAction @Save => m_Wrapper.m_Drawing_Save;
+        public InputAction @Clear => m_Wrapper.m_Drawing_Clear;
         public InputActionMap Get() { return m_Wrapper.m_Drawing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1437,6 +1460,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Save.started += instance.OnSave;
             @Save.performed += instance.OnSave;
             @Save.canceled += instance.OnSave;
+            @Clear.started += instance.OnClear;
+            @Clear.performed += instance.OnClear;
+            @Clear.canceled += instance.OnClear;
         }
 
         private void UnregisterCallbacks(IDrawingActions instance)
@@ -1456,6 +1482,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Save.started -= instance.OnSave;
             @Save.performed -= instance.OnSave;
             @Save.canceled -= instance.OnSave;
+            @Clear.started -= instance.OnClear;
+            @Clear.performed -= instance.OnClear;
+            @Clear.canceled -= instance.OnClear;
         }
 
         public void RemoveCallbacks(IDrawingActions instance)
@@ -1545,5 +1574,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnUndo(InputAction.CallbackContext context);
         void OnRedo(InputAction.CallbackContext context);
         void OnSave(InputAction.CallbackContext context);
+        void OnClear(InputAction.CallbackContext context);
     }
 }

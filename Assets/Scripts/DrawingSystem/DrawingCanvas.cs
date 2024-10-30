@@ -9,13 +9,13 @@ namespace DrawingSystem
         private RawImage drawingArea;    // The UI RawImage where the texture will be displayed
         [SerializeField] private Texture2D inputImage;    // The MxN image we want to compress
         [SerializeField] private MeshRenderer mesh;    // The MxN image we want to compress
-    
+
         private Texture2D texture;
         private Material m;
 
         private float widthRatio;
         private float heightRatio;
-        
+
         private void Awake()
         {
             drawingArea = transform.GetChild(0).GetComponent<RawImage>();
@@ -30,7 +30,7 @@ namespace DrawingSystem
             widthRatio = 512 / drawingArea.rectTransform.rect.width;
             heightRatio = 256 / drawingArea.rectTransform.rect.height;
         }
-        
+
         //points must be a rolled array, describing the indicies on the texture to modify.
         public void UpdateImage(int[] points, Color[] colors)
         {
@@ -41,17 +41,17 @@ namespace DrawingSystem
             for (int i = 0; i < points.Length; i++)
             {
                 int index = points[i];
-                if(index == -1) continue;
+                if (index == -1) continue;
                 Color trueColor = colors[i];
                 trueColor.a = 1;
-                currentColors[index] = Color.Lerp(currentColors[index] , trueColor, colors[i].a);   // Apply the color at the corresponding index
+                currentColors[index] = Color.Lerp(currentColors[index], trueColor, colors[i].a);   // Apply the color at the corresponding index
             }
 
             // Update the texture with the modified colors
             texture.SetPixels(0, 256, 512, 256, currentColors);
             texture.Apply();
         }
-        
+
         public void UpdateImage(Color[] colors)
         {
             texture.SetPixels(0, 256, 512, 256, colors);
@@ -78,9 +78,9 @@ namespace DrawingSystem
         //Generate Canvas
         public void GenerateCanvas()
         {
-            
+
         }
-        
+
         /*
          * In order to save or update the image, consider that we have a UI image of dimensions M and N
          * We want to compress that image to fit into the texture which is 512x512. However, the texture will only draw to the top 512x256,
@@ -90,7 +90,7 @@ namespace DrawingSystem
 
         public void SaveCanvasToTexture(string fileName)
         {
-            
+
         }
 
 
@@ -107,7 +107,7 @@ namespace DrawingSystem
 
         public Color[] GetSnapshot()
         {
-            return texture.GetPixels(0,256,512,256);
+            return texture.GetPixels(0, 256, 512, 256);
         }
     }
 }
